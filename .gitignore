@@ -24,3 +24,6 @@ temp/
 
 # 作業記録（プライベート）
 /work_records/
+
+# Amazon Q CLI todo lists
+.amazonq/cli-todo-lists/
