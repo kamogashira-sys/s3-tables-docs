@@ -76,3 +76,52 @@ Amazon S3 Tablesおよび関連するS3サービス、テーブルフォーマ�
 - [AWS S3 Tables](https://aws.amazon.com/s3/features/tables/)
 - [Apache Iceberg](https://iceberg.apache.org/)
 - [AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html)
+
+---
+
+## 🤝 貢献者
+
+- **調査担当**: Amazon Q Developer CLI
+- **レビュー**: katoh
+
+---
+
+## 📝 ライセンス
+
+このプロジェクトは [MIT License](LICENSE) の下で公開されています。
+
+---
+
+## ⚠️ 免責事項
+
+> **重要な免責事項**
+> 
+> このプロジェクトは **非公式** のドキュメントです。Amazon Web Services, Inc.またはその関連会社によって作成、承認、または保証されたものではありません。
+> 
+> - **商標について**: "Amazon S3 Tables"、"AWS"、"Amazon Web Services" は Amazon.com, Inc. またはその関連会社の商標です
+> - **情報の正確性**: 本ドキュメントの情報は調査時点のものであり、正確性を保証するものではありません
+> - **責任の制限**: 本ドキュメントの使用により生じた損害について、作成者は一切の責任を負いません
+> - **公式情報**: 最新かつ正確な情報は [Amazon S3 Tables 公式サイト](https://aws.amazon.com/s3/features/tables/) をご確認ください
+
+---
+
+## 管理方針
+
+- 調査結果はGitHubで管理
+- 定期的な更新（AWS re:Invent 2025後も継続）
+- 構造化されたドキュメント形式での記録
+- 変更履歴の適切な管理
+
+---
+
+## 🔗 関連リンク
+
+- [Amazon S3 Tables 公式サイト](https://aws.amazon.com/s3/features/tables/)
+- [AWS S3 Tables ドキュメント](https://docs.aws.amazon.com/s3-tables/)
+- [Apache Iceberg 公式サイト](https://iceberg.apache.org/)
+- [AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html)
+- [JAWS-UG横浜](https://jaws-ug-yokohama.connpass.com/)
+
+---
+
+*このプロジェクトは継続的な調査と分析を通じて、Amazon S3 Tablesの効果的な活用を支援することを目指しています。*
