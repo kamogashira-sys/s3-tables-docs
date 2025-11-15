@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+.~*
+
+# AWS
+.aws/
+credentials
+
+# Work files
+scratch/
+temp/
+
+# 作業記録（プライベート）
+/work_records/
