@@ -1,5 +1,14 @@
 # Amazon S3 Tables - 概要
 
+## 前提知識
+
+S3 Tablesを理解する前に、以下のS3基礎知識を確認することを推奨します：
+
+- [S3サービス種類の比較](../00-s3-fundamentals/01-s3-service-types.md) - S3の4つのバケットタイプ
+- [ストレージクラス比較](../00-s3-fundamentals/02-storage-classes.md) - S3の8つのストレージクラス
+
+---
+
 ## 目次
 - [Amazon S3 Tablesとは](#amazon-s3-tablesとは)
 - [基本概念](#基本概念)

@@ -7,6 +7,10 @@ Amazon S3 Tablesおよび関連するS3サービス、テーブルフォーマ�
 
 ## 目次
 
+### S3基礎知識
+- [S3サービス種類の比較](docs/00-s3-fundamentals/01-s3-service-types.md)
+- [ストレージクラス比較](docs/00-s3-fundamentals/02-storage-classes.md)
+
 ### 入門・基礎
 - [概要](docs/01-getting-started/01-overview.md)
 - [主要機能](docs/01-getting-started/02-features.md)
@@ -52,6 +56,34 @@ Amazon S3 Tablesおよび関連するS3サービス、テーブルフォーマ�
 ### 比較・関係性
 - [S3 Tables と Iceberg の関係](docs/08-comparison/01-s3tables-iceberg-relationship.md)
 - [Iceberg on S3 との比較](docs/08-comparison/02-iceberg-library-s3.md)
+
+## 重要な注意事項
+
+### AWS公式ドキュメントの矛盾について
+
+調査中に以下のドキュメント間の矛盾を発見しました：
+
+**タグサポートに関する矛盾**
+
+- **古いドキュメント** ([Security considerations and limitations for S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-restrictions.html)):
+  - 「Tags are not supported for table buckets and tables」と記載
+  - タグ非サポートと明記
+
+- **新しいドキュメント** ([Using tags with S3 tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/table-tagging.html)):
+  - 「S3 tables support tagging for cost allocation, attribute-based access control」と記載
+  - タグサポートありと明記
+
+**結論**:
+- **タグサポートは2024年11月6日に追加されました**
+- 古い制限事項ドキュメントは更新されていない可能性があります
+- **最新のタグサポートドキュメントが正しい情報です**
+
+**推奨事項**:
+- AWS公式ドキュメントを参照する際は、複数のドキュメントを確認してください
+- ドキュメントの更新日や更新履歴を確認してください
+- 矛盾がある場合は、最新の情報を優先してください
+
+---
 
 ## 調査状況
 

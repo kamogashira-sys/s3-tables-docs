@@ -7,6 +7,16 @@ Amazon S3 Tablesの包括的なドキュメントセットへようこそ。こ�
 
 ## 📚 ドキュメント構成
 
+### [00. S3基礎知識](00-s3-fundamentals/)
+S3 Tablesを理解するための前提知識です。
+
+- [S3サービス種類の比較](00-s3-fundamentals/01-s3-service-types.md) - 4つのバケットタイプ
+- [ストレージクラス比較](00-s3-fundamentals/02-storage-classes.md) - 8つのストレージクラス
+
+**対象読者**: S3初学者、S3 Tables評価担当者
+
+---
+
 ### [01. 入門・基礎](01-getting-started/)
 S3 Tablesを初めて使う方向けの入門ドキュメントです。
 
