@@ -7,33 +7,51 @@ Amazon S3 Tablesおよび関連するS3サービス、テーブルフォーマ�
 
 ## 目次
 
-### S3サービス全体
-- [S3サービス種類の比較](docs/s3/01-s3-service-types.md)
-- [S3ストレージクラス比較](docs/s3/02-storage-classes.md)
+### 入門・基礎
+- [概要](docs/01-getting-started/01-overview.md)
+- [主要機能](docs/01-getting-started/02-features.md)
+- [料金](docs/01-getting-started/03-pricing.md)
+- [制限事項](docs/01-getting-started/04-limitations.md)
+- [考慮事項](docs/01-getting-started/05-user-considerations.md)
 
-### S3 Tables
-- [概要](docs/s3-tables/01-overview.md)
-- [主要機能](docs/s3-tables/02-features.md)
-- [ユースケース](docs/s3-tables/03-usecases.md)
-- [料金](docs/s3-tables/04-pricing.md)
-- [制限事項（公式）](docs/s3-tables/05-limitations.md)
-- [制限事項・注意事項（ユーザー目線）](docs/s3-tables/06-user-considerations.md)
-- [バージョンアップ履歴](docs/s3-tables/07-version-history.md)
-- [実装例](docs/s3-tables/08-examples.md)
+### 運用・管理
+- [メンテナンス](docs/02-operations/01-maintenance.md)
+- [パフォーマンス最適化](docs/02-operations/02-performance-optimization.md)
+- [トラブルシューティング](docs/02-operations/03-troubleshooting-guide.md)
+- [監視・ログ記録](docs/02-operations/04-monitoring-logging.md)
+- [コンソールデータプレビュー](docs/02-operations/05-console-data-preview.md)
 
-### テーブルフォーマット比較
-- [Apache Iceberg on AWS vs S3 Tables](docs/comparison/01-iceberg-vs-s3tables.md)
-- [S3 TablesとIcebergテーブルフォーマットの関係](docs/comparison/02-s3tables-iceberg-relationship.md)
-- [Apache IcebergライブラリとS3の関係](docs/comparison/03-iceberg-library-s3.md)
+### セキュリティ・コンプライアンス
+- [セキュリティベストプラクティス](docs/03-security/01-security-best-practices.md)
+- [データガバナンス](docs/03-security/02-data-governance.md)
+- [コンプライアンス](docs/03-security/03-compliance.md)
+- [SSE-KMS暗号化](docs/03-security/04-sse-kms-encryption.md)
 
-### 外部アクセス
-- [Glue Data Catalogと外部テーブル](docs/external-access/01-glue-data-catalog.md)
-- [Snowflakeからのアクセス](docs/external-access/02-snowflake.md)
-- [Databricksからのアクセス](docs/external-access/03-databricks.md)
-- [その他のコンピューティングリソース](docs/external-access/04-other-compute.md)
+### 統合・連携
+- [AWS Glue統合](docs/04-integrations/01-glue-integration.md)
+- [Data Firehose統合](docs/04-integrations/02-firehose-integration.md)
+- [ストリーミングデータ取り込み](docs/04-integrations/03-streaming-data-ingestion.md)
+- [機械学習統合](docs/04-integrations/04-machine-learning-integration.md)
+- [SageMaker Unified Studio統合](docs/04-integrations/05-sagemaker-unified-studio.md)
 
-### 将来展望
-- [今後の機能拡張予想](docs/future/01-roadmap-prediction.md)
+### 高度な活用
+- [マルチリージョン戦略](docs/05-advanced/01-multi-region-strategy.md)
+- [災害復旧](docs/05-advanced/02-disaster-recovery.md)
+- [データレイク移行](docs/05-advanced/03-migration-from-datalake.md)
+- [コンパクション戦略](docs/05-advanced/04-compaction-strategies.md)
+- [スナップショット管理](docs/05-advanced/05-snapshot-management.md)
+
+### ユースケース・実践
+- [ユースケース集](docs/06-use-cases/01-use-cases.md)
+
+### リファレンス
+- [用語集](docs/07-reference/01-glossary.md)
+- [技術リファレンス](docs/07-reference/02-reference.md)
+- [FAQ](docs/07-reference/03-faq.md)
+
+### 比較・関係性
+- [S3 Tables と Iceberg の関係](docs/08-comparison/01-s3tables-iceberg-relationship.md)
+- [Iceberg on S3 との比較](docs/08-comparison/02-iceberg-library-s3.md)
 
 ## 調査状況
 
