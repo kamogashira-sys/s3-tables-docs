@@ -45,11 +45,21 @@ S3 Tablesは、Table Bucketsという専用のバケットタイプを使用し�
 
 ### 使用可能なストレージクラス
 
-S3 Tablesでは、以下のストレージクラスが使用可能です：
+**⚠️ 重要**: S3 Tablesは`S3 Standard`ストレージクラスのみをサポートします。
 
-- **S3 Standard**: デフォルト、頻繁なアクセス
-- **S3 Standard-IA**: 低頻度アクセス
-- **S3 Glacier Instant Retrieval**: アーカイブ、即時取得
+- **S3 Standard**: デフォルト、変更不可
+  - 頻繁なアクセスに最適化
+  - 低レイテンシアクセス
+  - 自動メンテナンスに必要
+
+**非サポート**:
+- ❌ S3 Standard-IA
+- ❌ S3 Glacier Instant Retrieval
+- ❌ その他すべてのストレージクラス
+
+**理由**: 分析ワークロードの性能要件と自動メンテナンス機能のため
+
+**詳細**: [ストレージクラス比較](02-storage-classes.md#s3-tablesとの関係)を参照
 
 ---
 

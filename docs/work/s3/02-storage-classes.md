@@ -1,3 +1,27 @@
+# ⚠️ WARNING: このファイルには誤った情報が含まれています
+
+**このファイルは使用しないでください**
+
+- 作成日: 2025-11-16
+- 発見日: 2025-11-16
+- 誤りの内容: S3 Tablesのストレージクラスサポートに関する誤記載
+
+**誤った記載**:
+- S3 Tablesが7種類のストレージクラスをサポート（Intelligent-Tiering、Standard-IA、Glacier系）
+
+**正しい情報**:
+- S3 TablesはS3 Standardストレージクラスのみをサポート
+- 詳細: docs/00-s3-fundamentals/02-storage-classes.md
+
+**根拠**:
+- AWS公式ドキュメント: https://docs.aws.amazon.com/AmazonS3/latest/API/developing-s3-tables-APIs.html
+
+---
+
+# 以下、元のコンテンツ（参照用のみ、使用禁止）
+
+---
+
 # Amazon S3 ストレージクラス比較
 
 ## 目次
@@ -614,93 +638,58 @@ Glacier Deep Archive
 
 ## S3 Tablesとの関係
 
-### ⚠️ 重要: S3 Tablesのストレージクラス制限
+### Table Bucketsで使用可能なストレージクラス
 
-**S3 Tablesは`S3 Standard`ストレージクラスのみをサポートします。**
-
-#### サポート状況
+Table Bucketsは、以下のストレージクラスをサポートします：
 
 | ストレージクラス | サポート状況 | 備考 |
 |----------------|------------|------|
-| **S3 Standard** | ✅ サポート | デフォルト、変更不可 |
-| **S3 Express One Zone** | ❌ 非サポート | Directory Buckets専用 |
-| **S3 Intelligent-Tiering** | ❌ 非サポート | Table Bucketsでは使用不可 |
-| **S3 Standard-IA** | ❌ 非サポート | Table Bucketsでは使用不可 |
-| **S3 One Zone-IA** | ❌ 非サポート | Table Bucketsでは使用不可 |
-| **S3 Glacier Instant Retrieval** | ❌ 非サポート | Table Bucketsでは使用不可 |
-| **S3 Glacier Flexible Retrieval** | ❌ 非サポート | Table Bucketsでは使用不可 |
-| **S3 Glacier Deep Archive** | ❌ 非サポート | Table Bucketsでは使用不可 |
+| **Standard** | ✅ サポート | デフォルト |
+| **Express One Zone** | ❌ 非サポート | Directory Buckets専用 |
+| **Intelligent-Tiering** | ✅ サポート | 推奨 |
+| **Standard-IA** | ✅ サポート | 低頻度アクセス |
+| **One Zone-IA** | ✅ サポート | 低コスト |
+| **Glacier IR** | ✅ サポート | アーカイブ |
+| **Glacier FR** | ✅ サポート | 長期アーカイブ |
+| **Glacier DA** | ✅ サポート | 最長期アーカイブ |
 
-#### 技術的制約
+### 推奨ストレージクラス
 
-AWS公式ドキュメントによると、S3 Tablesでは以下の制約があります：
+#### 分析ワークロード（頻繁なクエリ）
 
-**PutObject API**:
-```
-x-amz-storage-class: For S3 Tables, the default value is STANDARD and it can't be changed.
-```
+**推奨**: S3 Standard
 
-**CreateMultipartUpload API**:
-```
-x-amz-storage-class: For S3 Tables, the default value is STANDARD and it can't be changed.
-```
+- Athena、EMR、Redshiftからの頻繁なクエリ
+- 低レイテンシアクセスが必要
 
-**出典**: [Supported Amazon S3 object-level API operations for S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/API/developing-s3-tables-APIs.html)
+#### アクセスパターンが不明
 
-#### なぜS3 Standardのみか
+**推奨**: S3 Intelligent-Tiering
 
-S3 Tablesが`S3 Standard`のみをサポートする理由：
+- 新規プロジェクト、実験的なワークロード
+- 自動コスト最適化
 
-1. **分析ワークロード専用設計**
-   - 頻繁なクエリアクセスを前提
-   - 低レイテンシが要求される
+#### 低頻度アクセスの分析データ
 
-2. **Icebergメタデータの即時アクセス**
-   - メタデータファイルへの高速アクセスが必須
-   - アーカイブストレージでは性能要件を満たせない
+**推奨**: S3 Standard-IA
 
-3. **自動メンテナンスの要件**
-   - S3が自動的にコンパクション、スナップショット管理を実施
-   - これらの操作には即時アクセスが必要
+- 月1回程度のクエリ
+- コスト削減
 
-#### ライフサイクル管理の制約
+#### アーカイブデータ
 
-**重要**: Table Bucketsでは以下が不可：
+**推奨**: S3 Glacier Instant Retrieval
 
-- ❌ ストレージクラスの変更
-- ❌ ライフサイクルポリシーによる移行
-- ❌ Intelligent-Tieringへの移行
-- ❌ Glacierへのアーカイブ
+- 四半期に1回程度のクエリ
+- ミリ秒アクセスを維持
 
-#### コスト最適化の代替手段
+### ライフサイクル管理の考慮事項
 
-ストレージクラス変更ができないため、以下の方法でコスト最適化を実施：
+Table Bucketsでは、以下の点に注意してライフサイクルポリシーを設定します：
 
-1. **自動メンテナンスの活用**
-   - S3が自動的にファイルをコンパクション
-   - 不要なファイルを自動削除
-   - ストレージ使用量を削減
-
-2. **スナップショット管理**
-   - 古いスナップショットの定期的な削除
-   - 保持期間の適切な設定
-
-3. **パーティショニング戦略**
-   - 効率的なデータ配置
-   - クエリパフォーマンスの向上
-
-4. **データライフサイクル設計**
-   - 古いデータは別のS3バケット（General Purpose）に移行
-   - General Purposeバケットでライフサイクル管理を実施
-
----
-
-### 修正履歴
-
-**2025年11月16日**: S3 Tablesのストレージクラスサポートに関する誤記載を修正
-- 誤: 7種類のストレージクラスをサポート
-- 正: S3 Standardのみをサポート
-- 根拠: AWS公式APIドキュメント
+1. **メタデータファイル**: Icebergメタデータファイルは頻繁にアクセスされるため、Standardに維持
+2. **データファイル**: アクセス頻度に応じて移行
+3. **スナップショット**: 古いスナップショットは自動削除される
 
 ---
 
