@@ -59,51 +59,6 @@ Amazon S3 Tablesおよび関連するS3サービス、テーブルフォーマ�
 
 ## 重要な注意事項
 
-## 🚨 緊急修正のお知らせ（2025年11月16日）
-
-本ドキュメントに重大な誤記載が発見され、修正を実施しました。
-
-### 誤記載の内容
-
-**誤った記載**:
-- S3 Tablesが複数のストレージクラス（Intelligent-Tiering、Standard-IA、Glacier系）をサポート
-
-**正しい情報**:
-- **S3 TablesはS3 Standardストレージクラスのみをサポート**
-- ストレージクラスの変更は不可
-- ライフサイクル移行は不可
-
-### 根拠
-
-AWS公式ドキュメント「[Supported Amazon S3 object-level API operations for S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/API/developing-s3-tables-APIs.html)」より：
-
-> For S3 Tables, the default value is `STANDARD` and it can't be changed.
-
-### 修正済みドキュメント
-
-- ✅ [ストレージクラス比較](docs/00-s3-fundamentals/02-storage-classes.md#s3-tablesとの関係)
-- ✅ [S3基礎知識 README](docs/00-s3-fundamentals/README.md)
-
-### 再発防止策
-
-今回の誤記載を受け、以下の対策を実施します：
-
-1. **品質保証チェックリストの導入**
-   - AWS公式ドキュメントとの照合を必須化
-   - 一次情報ソースの明示を義務化
-
-2. **全ドキュメントの再検証**
-   - 既存ドキュメントの正確性を再確認
-   - 検証結果を記録
-
-3. **レビュープロセスの確立**
-   - 複数の目による確認
-   - 技術的正確性の検証
-
-詳細: [根本原因分析レポート](work_records/20251116/20251116090318_root_cause_analysis.md)
-
----
-
 ### AWS公式ドキュメントの矛盾について
 
 調査中に以下のドキュメント間の矛盾を発見しました：
